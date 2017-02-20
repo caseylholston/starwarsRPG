@@ -12,3 +12,13 @@ figure {
 figcaption {
 	text-align: center;
 }
+
+#attack {
+	vertical-align: middle;
+}
+
+#attack-button {
+	width: 100%;
+	margin: 107.5px 0px;
+}
+

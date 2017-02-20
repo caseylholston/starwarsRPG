@@ -17,8 +17,8 @@ $(document).ready(function(){
         secondNumber = '';
         operator = ''
         result = '';
-        first();
-    }
+        makeCharacter();
+    };
 // This function will make the characters stats
         function makeCharacter(){
         $('.number').on('click',function() {
@@ -56,4 +56,6 @@ $(document).ready(function(){
         });
 
 
-};
+});
+
+
