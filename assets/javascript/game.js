@@ -34,11 +34,17 @@
 
 // This function will select the characters and make stats
     $(".character").on("click",function() {
-        activeCharacters[activeIndex] += $(this).name;
-        console.log(activeCharacters[activeIndex]);
+    if (activeIndex === 0) {
+        activeCharacters[activeIndex] += $(this).attr("name");
         $(characterAttackDiv).html($( this ));
-        console.log(characterAttackDiv);
-        return;
+        activeIndex++;
+    }
+    else if (activeIndex === 1) {
+          activeCharacters[activeIndex] += $(this).attr("name");
+          $(characterDefenseDiv).html($( this ));
+
+    }
+        
     });
 
  }      
