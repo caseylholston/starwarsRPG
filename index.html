@@ -21,10 +21,11 @@
 	<script src="assets/javascript/game.js"></script>
 	<!-- Enhanced CSS Stylesheet -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
+	<script type="text/javascript">$(document).ready(initial);</script>
 	
 </head>
 <body>
+
 	<!-- Hero Area -->
 	<div class="jumbotron">
 	    <h1 class="text-center">Welcome to the Arena</h1>
@@ -39,28 +40,28 @@
     				This is where the character images will go!
     			<br>
 				<!-- Character 1 Image -->
-				<figure>
-					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded character">
+				<figure class ="character" name="character-1">
+					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded">
 					<figcaption class="charStats">Character 1</figcaption>
 				</figure>
 				<!-- Character 2 Image -->
-				<figure>
-					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded character">
+				<figure class ="character" name="character-2">
+					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded">
 					<figcaption>Character 2</figcaption>
 				</figure>
 				<!-- Character 3 Image -->
-				<figure>
-					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded character">
+				<figure class ="character" name="character-3">
+					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded">
 					<figcaption>Character 3</figcaption>
 				</figure>
 				<!-- Character 4 Image -->
-				<figure>
-					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded character">
+				<figure class ="character" name="character-4">
+					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded">
 					<figcaption>Character 4</figcaption>
-				</figure>
+				</figure class ="character" name="character-5">
 				<!-- Character 5 Image -->
-				<figure>
-					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded character">
+				<figure class ="character">
+					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded">
 					<figcaption>Character 5</figcaption>
 				</figure>
 				<!-- Ends Panel Body -->
@@ -71,36 +72,42 @@
     		</div>
     	<!-- Ends Row 1-->
     	</div>
-		<!-- Starts Row 1 -->
-			<div class="row">
-    		<div class="col-lg-4 col-lg-offset-1" id="Attacker">
-            	<div class="panel panel-default active">
-  				<div class="panel-body">
-    				This is where the attacker character image will go!
-    			<figure>
-					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded character">
-					<figcaption>Attacking Character</figcaption>
-				</figure>
-    			<!-- Ends Panel Body -->
-				</div>
-    			<!-- Ends Panel -->
-    			</div>
-    		<!-- Ends Column 1 -->
-    		</div>
+		<!-- Starts Row 2 -->
+		<div class="row">
+			<!-- Starts Column 1 -->
+    		<div class="col-lg-4 col-lg-offset-1" id="attacker">
+	            	<div class="panel panel-default">
+	  				<div class="panel-body activeName">
+	    				This is where the attacker character image will go!
+	    			<figure class ="activeAttackChar">
+						<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded character">
+						<figcaption>Attacking Character</figcaption>
+					</figure>
+	    			<!-- Ends Panel Body -->
+					</div>
+	    			<!-- Ends Panel -->
+	    			</div>
+	    		<!-- Ends Column 1 -->
+	    		</div>
     		<!-- Starts Column 1 -->
     		<div class="col-lg-2" id ="attack">
-            <!-- Attack Button -->
+            <!-- Starts Attack Button -->
     			<button type="button" class="btn btn-danger" id ="attack-button">Attack</button>
     		<!-- Ends Attack Button -->
     		<!-- Ends Column 2 -->
     		</div>
+    		<!-- Starts Column 3 -->
     		<div class="col-lg-4"  id= "defender">
-            	<div class="panel panel-default active">
-  				<div class= "panel-body">
+            	<!-- Starts Panel -->
+            	<div class="panel panel-default">
+  				<!-- Starts Panel Body -->
+  				<div class= "panel-body activeName">
     				This is where the defender image will go!
-    			<figure>
+    			<!-- Starts Defender Figure -->
+    			<figure class ="activeDefenseChar">
 					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded character">
 					<figcaption>Defending Character</figcaption>
+				<!-- Ends Defender Figure -->
 				</figure>
     			<!-- Ends Panel Body -->
 				</div>
@@ -110,6 +117,14 @@
     		</div>
     	<!-- Ends Row 2-->
     	</div>
+		<!-- Starts Row 3 -->
+		<div class="row">
+			<!-- Starts Column 1 -->
+    		<div class="col-lg-4 col-lg-offset-4" id ="restart">
+            <!-- Starts Restart Button -->
+    			<button type="button" class="btn btn-success" id ="attack-button">Restart</button>
+    		<!-- Ends Attack Button -->
+
     <!--Ends Container -->
 	</div>
 

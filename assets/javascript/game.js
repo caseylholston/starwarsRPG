@@ -1,61 +1,82 @@
-$(document).ready(function(){
-    
-    var firstNumber;
-    var secondNumber;
-    var result;
 
+  //Declare Variables  
+    var attacker;
+    var defender;
+    var activeIndex;
+    var activeCharacters;
+    var hitPoints;
+    var attackValue;
+    var defenseValue;
+    var characterAttackDiv;
+    var characterDefenseDiv;
+    var attackResult;
     initial();
     
 // This is the initializing functions that sets the beginning game state
     function initial() {
-        $('#first-number').empty();
-        $('#operator').empty();
-        $('#second-number').empty();
-        $('#result').empty();
+        $('.activeAttackChar').empty();
+        $('.activeDefenseChar').empty();
+        $('#restart').empty();
 
-        firstNumber = '';
-        secondNumber = '';
-        operator = ''
-        result = '';
-        makeCharacter();
-    };
-// This function will make the characters stats
-        function makeCharacter(){
-        $('.number').on('click',function() {
-            firstNumber += this.value;
-            console.log(firstNumber);
-            $('#first-number').html(firstNumber);
-        });
+        characterAttackDiv = $(".activeAttackChar");
+        characterDefenseDiv = $(".activeDefenseChar");
 
+        attacker = "";
+        defender = "";
+        activeCharacters = ["",""];
+        activeIndex = 0;
+        selectedIndex =[];
+        hitPoints = "";
+        attackValue = "";
+        defenseValue = "";
+        attackResult = "";
+    
 
+// This function will select the characters and make stats
+    $(".character").on("click",function() {
+        activeCharacters[activeIndex] += $(this).name;
+        console.log(activeCharacters[activeIndex]);
+        $(characterAttackDiv).html($( this ));
+        console.log(characterAttackDiv);
+        return;
+    });
 
-        $('.clear').on('click',function() {
-            initial();
-        });
-    }
+ }      
+
+        // $('.number').on('click',function() {
+        // numbers[workingIndex] += this.value;
+        // console.log(numbers[workingIndex]);
+        // $(numberDiv).text(numbers[workingIndex]);
+        // return;
+        //    });
+
+        // $(".clear").on("click",function() {
+        //     initial();
+        // });
+    
 
 // This function will determine the outcome of the attack button
-        function makeCharacter(){
-        $('.number').on('click',function() {
-            firstNumber += this.value;
-            console.log(firstNumber);
-            $('#first-number').html(firstNumber);
-        });
+    //     function makeCharacter(){
+    //     $('.number').on('click',function() {
+    //         firstNumber += this.value;
+    //         console.log(firstNumber);
+    //         $('#first-number').html(firstNumber);
+    //     });
 
 
 
-        $('.clear').on('click',function() {
-            initial();
-        });
-    }
+    //     $('.clear').on('click',function() {
+    //         initial();
+    //     });
+    // }
 
 
 //  This is the function for the restart button
-    $('.clear').on('click',function() {
-            initial();
-        });
+    // $('.clear').on('click',function() {
+    //         initial();
+    //     });
 
 
-});
+
 
 
