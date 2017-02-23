@@ -1,7 +1,6 @@
 $(document).ready(function(){
   //Declare Variables  
-    var attacker;
-    var defender;
+    var defeatedCharacter
     var activeIndex;
     var activeCharacters;
     var characterAttackDiv;
@@ -113,6 +112,7 @@ $(document).ready(function(){
                 if (activeCharacters.hitPoints[1] < 1) {
                         alert("Player 2 Has Been Defeated");
                         $('.activeDefenseChar').empty();
+                        //var defeatedCharacter = defeatedIndex.push(activeCharacters.position[1]);
                         activeIndex--;
 
                         }
