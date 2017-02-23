@@ -16,12 +16,16 @@ figcaption {
 
 #attack-button {
 	width: 100%;
-	vertical-align: middle;
+	margin-top: 40%;
 	/*margin: 107.5px 0px;*/
 }
 
 .activeChar {
 	width: 100%;
+}
+
+#character-selection {
+	text-align: center;
 }
 
 .activeName {
