@@ -19,7 +19,7 @@ $(document).ready(function(){
     function initial() {
         $('.activeAttackChar').empty();
         $('.activeDefenseChar').empty();
-        $('#restart').empty();
+        $('#restart').hide();
 
         characterAttackDiv = $('.activeAttackChar');
         characterDefenseDiv = $('.activeDefenseChar');
@@ -39,7 +39,7 @@ $(document).ready(function(){
         defeatedIndex =[];
         attackResult = [','];
 
-    
+  
 
             // This function will select the characters and make stats
                 $(".character").on("click",function() {
@@ -117,7 +117,7 @@ $(document).ready(function(){
 
                         }
 
-                else if (activeCharacters.hitPoints[1] > 0){
+                if (activeCharacters.hitPoints[1] > 0) {
 
                         activeCharacters.currentAttackValue[1] = activeCharacters.attackRating[1]*([(Math.floor( Math.random() * 10 * characterAttributes.luckSkill.length) )]);
                             console.log("Player 2 Attack Value " + activeCharacters.currentAttackValue[1]);
@@ -136,14 +136,24 @@ $(document).ready(function(){
 
                         }
 
-                else if (activeCharacters.hitPoints[0] < 1 ) {
+                if (activeCharacters.hitPoints[0] < 1 ) {
                         alert("You Lose!");
                         $('.activeAttackChar').empty();
-                        }
+                        $('#restart').show()
+                        // $('#restart').on('click',function() {
+                        //       initial();
+                        
+                        //}
+                    }
 
                 });
 
     };
+
+
+          $('#restart').on('click',function() {
+                          initial();
+                      });
 
 }); 
 
@@ -152,8 +162,7 @@ $(document).ready(function(){
 
 
 //  This is the function for the restart button
-    // $('.clear').on('click',function() {
-    //         initial();
+    // c
     //     });
 
 
