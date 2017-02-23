@@ -94,10 +94,10 @@ $(document).ready(function(){
 
                 //This is the function that determines the outcome of pressing the attack button
                  $('#attack-button').on('click', function() {
-                    activeCharacters.currentAttackValue[0] = activeCharacters.attackRating[0]*([(Math.floor( Math.random() * 10 * characterAttributes.luckSkill.length) )]);
+                    activeCharacters.currentAttackValue[0] = activeCharacters.attackRating[0]*([(Math.floor( Math.random() * 10 * activeCharacters.luckModifier[0]) )]);
                         console.log("Player 1 Attack Value " + activeCharacters.currentAttackValue[0]);
 
-                    activeCharacters.currentDefenseValue[1] = activeCharacters.defenseRating[1]*([(Math.floor( Math.random() * characterAttributes.luckSkill.length) )]);
+                    activeCharacters.currentDefenseValue[1] = activeCharacters.defenseRating[1]*([(Math.floor( Math.random() * activeCharacters.luckModifier[1]) )]);
                         console.log("Player 2 Defense Value " + activeCharacters.currentDefenseValue[1]);
 
                     attackResult[0] = ([Math.abs(activeCharacters.currentAttackValue[0]-activeCharacters.currentDefenseValue[1])]);
@@ -119,10 +119,10 @@ $(document).ready(function(){
 
                 if (activeCharacters.hitPoints[1] > 0) {
 
-                        activeCharacters.currentAttackValue[1] = activeCharacters.attackRating[1]*([(Math.floor( Math.random() * 10 * characterAttributes.luckSkill.length) )]);
+                        activeCharacters.currentAttackValue[1] = activeCharacters.attackRating[1]*([(Math.floor( Math.random() * 10 * activeCharacters.luckModifier[1]) )]);
                             console.log("Player 2 Attack Value " + activeCharacters.currentAttackValue[1]);
 
-                        activeCharacters.currentDefenseValue[0] = activeCharacters.defenseRating[0]*([(Math.floor( Math.random() * characterAttributes.luckSkill.length) )]);
+                        activeCharacters.currentDefenseValue[0] = activeCharacters.defenseRating[0]*([(Math.floor( Math.random() * activeCharacters.luckModifier[0]) )]);
                             console.log("Player 1 Defense Value " + activeCharacters.currentDefenseValue[0]);
 
                         attackResult[1] = ([Math.abs(activeCharacters.currentAttackValue[1]-activeCharacters.currentDefenseValue[0])]);
