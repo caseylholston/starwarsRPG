@@ -1,6 +1,6 @@
 $(document).ready(function(){
   //Declare Variables  
-    var defeatedCharacter
+    var defeatedCharacter;
     var activeIndex;
     var activeCharacters;
     var characterAttackDiv;
@@ -9,7 +9,7 @@ $(document).ready(function(){
     initial();
     characterAttributes = {
                     attackSkill:[1,2,3,4,5],
-                    defenseSkill:[5,4,3,2,1],
+                    defenseSkill:[4, 6, 8, 10,12],
                     luckSkill:[2,4,6,8,10],
                     hitPoints:[20,25,30,35,40],
                 };
@@ -19,32 +19,56 @@ $(document).ready(function(){
         $('.activeAttackChar').empty();
         $('.activeDefenseChar').empty();
         $('#restart').hide();
+        $('.character').show();
+        //fillAvailableCharacters()
+        //function createCharacterNames(){}
+       // $('.')
 
         characterAttackDiv = $('.activeAttackChar');
         characterDefenseDiv = $('.activeDefenseChar');
 
         attacker = '';
         defender = '';
+        availableCharacters ={
+                                name:[],
+                                imageDetails:[],
+                            };
+        builtCharacters = {    name:[],
+                               image:[],
+
+        }
+
+        selectedCharacters = { name:[],
+                               imageDetails:[],
+
+        };
+        selectedIndex =0;
         activeCharacters = {position :['',''],
                             attackRating:[','],
                             defenseRating:[','],
                             hitPoints:[','],
                             luckModifier:[','],
                             currentAttackValue:[','],
-                            currentDefenseValue:[','],
-                            
+                            currentDefenseValue:[','],                        
                         };
         activeIndex = 0;
         defeatedIndex =[];
         attackResult = [','];
 
-  
+    //End Intitial Function
+        };
 
             // This function will select the characters and make stats
                 $(".character").on("click",function() {
+
                     if (activeIndex === 0) {
+                    $(this).clone().appendTo(characterAttackDiv);
+                    $(this).hide();
                     activeCharacters.position[activeIndex] = $(this).attr("name");
-                    $(characterAttackDiv).html($( this ));
+                    selectedCharacters.name[selectedIndex] = $(this).attr("name");
+                    selectedCharacters.imageDetails = $(this);
+                    selectedIndex++;
+
                         console.log(activeCharacters.position[activeIndex]);
                     
                     activeCharacters.attackRating[activeIndex] = characterAttributes.attackSkill[ (Math.floor( Math.random() * characterAttributes.attackSkill.length) )]*
@@ -66,8 +90,13 @@ $(document).ready(function(){
                     activeIndex++;
                     }
                     else if (activeIndex === 1) {
+                    $(this).clone().appendTo(characterDefenseDiv);
+                    $(this).hide();
                     activeCharacters.position[activeIndex] = $(this).attr("name");
-                    $(characterDefenseDiv).html($( this ));
+                    selectedCharacters.name[selectedIndex] = $(this).attr("name");
+                    selectedCharacters.imageDetails = $(this);
+                    selectedIndex++;
+                    //$(characterDefenseDiv).html($( this ));
                         console.log(activeCharacters.position[activeIndex]);
                     
                     activeCharacters.attackRating[activeIndex] = characterAttributes.attackSkill[ (Math.floor( Math.random() * characterAttributes.attackSkill.length) )]*
@@ -89,7 +118,7 @@ $(document).ready(function(){
                     activeIndex++;
 
                     }
-                    
+                //End character on click    
                 });
 
                 //This is the function that determines the outcome of pressing the attack button
@@ -100,70 +129,67 @@ $(document).ready(function(){
                     activeCharacters.currentDefenseValue[1] = activeCharacters.defenseRating[1]*([(Math.floor( Math.random() * activeCharacters.luckModifier[1]) )]);
                         console.log("Player 2 Defense Value " + activeCharacters.currentDefenseValue[1]);
 
-                    attackResult[0] = ([Math.abs(activeCharacters.currentAttackValue[0]-activeCharacters.currentDefenseValue[1])]);
+                    attackResult[0] = ([(activeCharacters.currentAttackValue[0]-activeCharacters.currentDefenseValue[1])]);
                         console.log("Player 1 Attack Result " + attackResult[0]);
 
-                    attackResult[0] = ([Math.abs(activeCharacters.currentAttackValue[0]-activeCharacters.currentDefenseValue[1])]);
+                    attackResult[0] = ([(activeCharacters.currentAttackValue[0]-activeCharacters.currentDefenseValue[1])]);
                         console.log("Player 2 Lost " + attackResult[0] + " Life");
 
                     activeCharacters.hitPoints[1] = (activeCharacters.hitPoints[1] - attackResult[0]);
                         console.log("New Player 2 Hit Point Total " + activeCharacters.hitPoints[1]);
 
-                if (activeCharacters.hitPoints[1] < 1) {
-                        alert("Player 2 Has Been Defeated");
-                        $('.activeDefenseChar').empty();
-                        //var defeatedCharacter = defeatedIndex.push(activeCharacters.position[1]);
-                        activeIndex--;
+                            if (activeCharacters.hitPoints[1] < 1) {
+                                    alert("Player 2 Has Been Defeated");
+                                    $('.activeDefenseChar').empty();
+                                    //var defeatedCharacter = defeatedIndex.push(activeCharacters.position[1]);
+                                    activeIndex--;
+                                }
+                             if (selectedCharacters.name.length === 5) {
+                                    alert("You Have Defeated All Challengers!");
+                                    $('.activeAttackChar').empty();
+                                    $('.activeDefenseChar').empty();
+                                    $('#restart').show()
+                                    };
+                            
 
-                        }
+                            if (activeCharacters.hitPoints[1] > 0) {
 
-                if (activeCharacters.hitPoints[1] > 0) {
+                                    activeCharacters.currentAttackValue[1] = activeCharacters.attackRating[1]*([(Math.floor( Math.random() * 10 * activeCharacters.luckModifier[1]) )]);
+                                        console.log("Player 2 Attack Value " + activeCharacters.currentAttackValue[1]);
 
-                        activeCharacters.currentAttackValue[1] = activeCharacters.attackRating[1]*([(Math.floor( Math.random() * 10 * activeCharacters.luckModifier[1]) )]);
-                            console.log("Player 2 Attack Value " + activeCharacters.currentAttackValue[1]);
+                                    activeCharacters.currentDefenseValue[0] = activeCharacters.defenseRating[0]*([(Math.floor( Math.random() * activeCharacters.luckModifier[0]) )]);
+                                        console.log("Player 1 Defense Value " + activeCharacters.currentDefenseValue[0]);
 
-                        activeCharacters.currentDefenseValue[0] = activeCharacters.defenseRating[0]*([(Math.floor( Math.random() * activeCharacters.luckModifier[0]) )]);
-                            console.log("Player 1 Defense Value " + activeCharacters.currentDefenseValue[0]);
+                                    attackResult[1] = ([Math.abs(activeCharacters.currentAttackValue[1]-activeCharacters.currentDefenseValue[0])]);
+                                        console.log("Player 2 Attack Result " + attackResult[0]);
 
-                        attackResult[1] = ([Math.abs(activeCharacters.currentAttackValue[1]-activeCharacters.currentDefenseValue[0])]);
-                            console.log("Player 2 Attack Result " + attackResult[0]);
+                                    attackResult[1] = ([Math.abs(activeCharacters.currentAttackValue[1]-activeCharacters.currentDefenseValue[0])]);
+                                        console.log("Player 1 Lost " + attackResult[0] + " Life");
 
-                        attackResult[1] = ([Math.abs(activeCharacters.currentAttackValue[1]-activeCharacters.currentDefenseValue[0])]);
-                            console.log("Player 1 Lost " + attackResult[0] + " Life");
+                                    activeCharacters.hitPoints[0] = (activeCharacters.hitPoints[0] - attackResult[1]);
+                                    console.log("New Player 1 Hit Point Total " + activeCharacters.hitPoints[0]);   
 
-                        activeCharacters.hitPoints[0] = (activeCharacters.hitPoints[0] - attackResult[1]);
-                        console.log("New Player 1 Hit Point Total " + activeCharacters.hitPoints[0]);
-
-                        }
-
-                if (activeCharacters.hitPoints[0] < 1 ) {
-                        alert("You Lose!");
-                        $('.activeAttackChar').empty();
-                        $('#restart').show()
-                        // $('#restart').on('click',function() {
-                        //       initial();
-                        
-                        //}
-                    }
-
+                            if (activeCharacters.hitPoints[0] < 1 ) {
+                                    alert("You Lose!");
+                                    $('.activeAttackChar').empty();
+                                    $('.activeDefenseChar').empty();
+                                    $('#restart').show()
+                                    }; 
+                //End active characters hit point > 0 if statement
+                            }
+    // End Attack Button On click            
                 });
 
-    };
 
 
-          $('#restart').on('click',function() {
-                          initial();
-                      });
+     $('#restart').on('click',function() {
+                        initial();
+                        
+               //End Initial Function on restart click
+                });
 
-}); 
-
-
-
-
-
-//  This is the function for the restart button
-    // c
-    //     });
+    //End Document Ready Function
+});
 
 
 
