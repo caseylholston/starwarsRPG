@@ -11,7 +11,7 @@ $(document).ready(function(){
                     attackSkill:[1,2,3,4,5],
                     defenseSkill:[4, 6, 8, 10,12],
                     luckSkill:[2,4,6,8,10],
-                    hitPoints:[20,25,30,35,40],
+                    hitPoints:[20,50,75,80,90],
                 };
     
 // This is the initializing functions that sets the beginning game state
@@ -43,7 +43,8 @@ $(document).ready(function(){
 
         };
         selectedIndex =0;
-        activeCharacters = {position :['',''],
+        activeCharacters = {
+                            position :['',''],
                             attackRating:[','],
                             defenseRating:[','],
                             hitPoints:[','],
@@ -52,7 +53,10 @@ $(document).ready(function(){
                             currentDefenseValue:[','],                        
                         };
         activeIndex = 0;
-        defeatedIndex =[];
+        defeatedCharacters ={
+                             name:[],
+                         };
+        defeatedIndex =0;                
         attackResult = [','];
 
     //End Intitial Function
@@ -140,11 +144,13 @@ $(document).ready(function(){
 
                             if (activeCharacters.hitPoints[1] < 1) {
                                     alert("Player 2 Has Been Defeated");
+                                    defeatedCharacters.name[defeatedIndex] = activeCharacters.position[1];
+                                    defeatedIndex++;
                                     $('.activeDefenseChar').empty();
                                     //var defeatedCharacter = defeatedIndex.push(activeCharacters.position[1]);
                                     activeIndex--;
-                                }
-                             if (selectedCharacters.name.length === 5) {
+                                };
+                             if (defeatedCharacters.name.length === 4) {
                                     alert("You Have Defeated All Challengers!");
                                     $('.activeAttackChar').empty();
                                     $('.activeDefenseChar').empty();
