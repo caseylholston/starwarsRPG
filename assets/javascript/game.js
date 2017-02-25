@@ -28,6 +28,8 @@ $(document).ready(function(){
     function initial() {
         $('.activeAttackChar').empty();
         $('.activeDefenseChar').empty();
+        $('.attackerHP').empty();
+        $('.defenderHP').empty();
         $('#restart').hide();
         $('.character').show();
         //fillAvailableCharacters()
@@ -96,7 +98,7 @@ $(document).ready(function(){
                     activeCharacters.hitPoints[activeIndex] = characterAttributes.hitPoints[ (Math.floor( Math.random() * characterAttributes.hitPoints.length) )]*
                                                               characterAttributes.luckSkill[(Math.floor( Math.random() * characterAttributes.luckSkill.length) )];
                         console.log("Hit Points " + activeCharacters.hitPoints[activeIndex]);
-                        //$('.activeAttackChar').append(activeCharacters.hitPoints[activeIndex]).addClass(hitPoints);
+                        $('.attackerHP').html("Current Hit Points" + "<br>" +activeCharacters.hitPoints[0]);
 
                     activeCharacters.luckModifier[activeIndex] = characterAttributes.luckSkill[ (Math.floor( Math.random() * characterAttributes.luckSkill.length) )]*
                                                               characterAttributes.luckSkill[(Math.floor( Math.random() * characterAttributes.luckSkill.length) )];
@@ -125,6 +127,7 @@ $(document).ready(function(){
                     activeCharacters.hitPoints[activeIndex] = characterAttributes.hitPoints[ (Math.floor( Math.random() * characterAttributes.hitPoints.length) )]*
                                                               characterAttributes.luckSkill[(Math.floor( Math.random() * characterAttributes.luckSkill.length) )];
                         console.log("Hit Points " + activeCharacters.hitPoints[activeIndex]);
+                            $('.defenderHP').html("Current Hit Points" + "<br>" +activeCharacters.hitPoints[1]);
 
                     activeCharacters.luckModifier[activeIndex] = characterAttributes.luckSkill[ (Math.floor( Math.random() * characterAttributes.luckSkill.length) )]*
                                                               characterAttributes.luckSkill[(Math.floor( Math.random() * characterAttributes.luckSkill.length) )];
@@ -152,6 +155,7 @@ $(document).ready(function(){
 
                     activeCharacters.hitPoints[1] = (activeCharacters.hitPoints[1] - attackResult[0]);
                         console.log("New Player 2 Hit Point Total " + activeCharacters.hitPoints[1]);
+                        $('.defenderHP').html(activeCharacters.hitPoints[1]);
 
                             if (activeCharacters.hitPoints[1] < 1) {
                                     alert("The Defender Has Been Defeated. Choose a New Challenger");
@@ -184,7 +188,8 @@ $(document).ready(function(){
                                         console.log("Player 1 Lost " + attackResult[0] + " Life");
 
                                     activeCharacters.hitPoints[0] = (activeCharacters.hitPoints[0] - attackResult[1]);
-                                    console.log("New Player 1 Hit Point Total " + activeCharacters.hitPoints[0]);   
+                                    console.log("New Player 1 Hit Point Total " + activeCharacters.hitPoints[0]);
+                                    $('.attackerHP').html(activeCharacters.hitPoints[0]);   
 
                             if (activeCharacters.hitPoints[0] < 1 ) {
                                     alert("You Lose!");

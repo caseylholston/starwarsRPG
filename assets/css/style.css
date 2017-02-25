@@ -13,7 +13,7 @@
 
 body{
 	background-image: url("../images/westerosmap.png");
-	background-size: 100%;
+	background-size: cover;
 	font-family: 'MedievalSharp', cursive;
 	color:white;
 }
@@ -22,6 +22,10 @@ h1 {
 	font-size: 47px;
 }
 
+span {
+	display: block;
+	margin-top: 40px;
+}
 p {
 	text-align: center;
 	font-family: 'MedievalSharp', cursive;
@@ -35,6 +39,12 @@ p {
 
 .container {
 	
+}
+
+.defenderHP {
+	text-align: center;
+	color:white;
+	display: block;
 }
 
 figure {
