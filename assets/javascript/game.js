@@ -1,5 +1,15 @@
 $(document).ready(function(){
-  //Declare Variables  
+  //Declare Variables
+
+    var audioElement = document.createElement("audio");
+      audioElement.setAttribute("src", "../starwarsRPG/assets/dinklage.mp3");
+      // Theme Button
+      $(".theme-button").on("click", function() {
+        audioElement.play();
+      });
+      $(".pause-button").on("click", function() {
+        audioElement.pause(); 
+    }); 
     var defeatedCharacter;
     var activeIndex;
     var activeCharacters;
@@ -86,6 +96,7 @@ $(document).ready(function(){
                     activeCharacters.hitPoints[activeIndex] = characterAttributes.hitPoints[ (Math.floor( Math.random() * characterAttributes.hitPoints.length) )]*
                                                               characterAttributes.luckSkill[(Math.floor( Math.random() * characterAttributes.luckSkill.length) )];
                         console.log("Hit Points " + activeCharacters.hitPoints[activeIndex]);
+                        //$('.activeAttackChar').append(activeCharacters.hitPoints[activeIndex]).addClass(hitPoints);
 
                     activeCharacters.luckModifier[activeIndex] = characterAttributes.luckSkill[ (Math.floor( Math.random() * characterAttributes.luckSkill.length) )]*
                                                               characterAttributes.luckSkill[(Math.floor( Math.random() * characterAttributes.luckSkill.length) )];
@@ -127,7 +138,7 @@ $(document).ready(function(){
 
                 //This is the function that determines the outcome of pressing the attack button
                  $('#attack-button').on('click', function() {
-                    activeCharacters.currentAttackValue[0] = activeCharacters.attackRating[0]*([(Math.floor( Math.random() * 10 * activeCharacters.luckModifier[0]) )]);
+                    activeCharacters.currentAttackValue[0] = activeCharacters.attackRating[0]*([(Math.floor( Math.random() * 5 * activeCharacters.luckModifier[0]) )]);
                         console.log("Player 1 Attack Value " + activeCharacters.currentAttackValue[0]);
 
                     activeCharacters.currentDefenseValue[1] = activeCharacters.defenseRating[1]*([(Math.floor( Math.random() * activeCharacters.luckModifier[1]) )]);
@@ -143,7 +154,7 @@ $(document).ready(function(){
                         console.log("New Player 2 Hit Point Total " + activeCharacters.hitPoints[1]);
 
                             if (activeCharacters.hitPoints[1] < 1) {
-                                    alert("Player 2 Has Been Defeated");
+                                    alert("The Defender Has Been Defeated. Choose a New Challenger");
                                     defeatedCharacters.name[defeatedIndex] = activeCharacters.position[1];
                                     defeatedIndex++;
                                     $('.activeDefenseChar').empty();
@@ -160,7 +171,7 @@ $(document).ready(function(){
 
                             if (activeCharacters.hitPoints[1] > 0) {
 
-                                    activeCharacters.currentAttackValue[1] = activeCharacters.attackRating[1]*([(Math.floor( Math.random() * 10 * activeCharacters.luckModifier[1]) )]);
+                                    activeCharacters.currentAttackValue[1] = activeCharacters.attackRating[1]*([(Math.floor( Math.random() * 5 * activeCharacters.luckModifier[1]) )]);
                                         console.log("Player 2 Attack Value " + activeCharacters.currentAttackValue[1]);
 
                                     activeCharacters.currentDefenseValue[0] = activeCharacters.defenseRating[0]*([(Math.floor( Math.random() * activeCharacters.luckModifier[0]) )]);

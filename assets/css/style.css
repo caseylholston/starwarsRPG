@@ -4,14 +4,53 @@
 	
 }
 
+.jumbotron {
+
+	background-image: url("../images/ricepaper2.png");
+	font-family: 'MedievalSharp', cursive;
+	color:black;
+}
+
+body{
+	background-image: url("../images/westerosmap.png");
+	background-size: 100%;
+	font-family: 'MedievalSharp', cursive;
+	color:white;
+}
+
+h1 {
+	font-size: 47px;
+}
+
+p {
+	text-align: center;
+	font-family: 'MedievalSharp', cursive;
+	color:black;
+}
+
+.panel {
+	background: none;
+	border: none;
+}
+
+.container {
+	
+}
+
 figure {
 	float: left;
 	margin: 15px;
 	text-align: center;
 }
 
+img {
+	height:150px;
+	width:150px;
+}
+
 figcaption {
 	text-align: center;
+	color: white;
 }
 
 #attack-button {
@@ -31,4 +70,7 @@ figcaption {
 .activeName {
 	text-align: center;
 }
+
+
+
 

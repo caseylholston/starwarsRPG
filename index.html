@@ -19,6 +19,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 	<script src="assets/javascript/game.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
 	
 	<!-- Enhanced CSS Stylesheet -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -29,41 +31,45 @@
 
 	<!-- Hero Area -->
 	<div class="jumbotron">
-	    <h1 class="text-center">Welcome to the Arena</h1>
-	    <h3 class="text-center">Choose Your Champion</h3>
-	</div>
+	    <h1 class="text-center">When You Play The Game of Thrones, <br> You Win or You Die</h1>
+	    <h3 class="text-center">Choose Your Champion and Then Choose Your First Challenger</h3>
+		<div class="text-center">
+	        <button class="btn btn-warning btn-xs theme-button"><span class="glyphicon glyphicon-music"></span> Play Theme!</button>
+	        <button class="btn btn-default btn-xs pause-button"><span class="glyphicon glyphicon-pause"></span> Pause Song</button>
+	    </div>
+	    <br>
+	    <p>Once you have picked your champion and your first challenger, click the attack button to start the battle.<p>
+    </div>
 
 	<div class="container">
     	<div class="row">
     		<div class="col-lg-10 col-lg-offset-1">
             	<div class="panel panel-default">
   				<div class="panel-body" id="character-selection">
-    				This is where the character images will go!
-    				<br>
 				<!-- Character 1 Image -->
-				<figure class ="character" name="character-1">
-					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded">
-					<figcaption class="charStats">Character 1</figcaption>
+				<figure class ="character" name="Jon Snow">
+					<img src="assets/images/jonsnow.webp" alt="Jon Snow" class="img-rounded">
+					<figcaption class="charStats">Jon Snow</figcaption>
 				</figure>
 				<!-- Character 2 Image -->
-				<figure class ="character" name="character-2">
-					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded">
-					<figcaption>Character 2</figcaption>
+				<figure class ="character" name="Night's King">
+					<img src="assets/images/thenightking.webp" alt="Night's King" class="img-rounded">
+					<figcaption>Night's King</figcaption>
 				</figure>
 				<!-- Character 3 Image -->
-				<figure class ="character" name="character-3">
-					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded">
-					<figcaption>Character 3</figcaption>
+				<figure class ="character" name="Daenerys Targaryen">
+					<img src="assets/images/daenerystargaryen.webp" alt="Daenerys Targaryen" class="img-rounded">
+					<figcaption>Daenerys Targaryen</figcaption>
 				</figure>
 				<!-- Character 4 Image -->
-				<figure class ="character" name="character-4">
-					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded">
-					<figcaption>Character 4</figcaption>
+				<figure class ="character" name="Tyrion Lannister">
+					<img src="assets/images/tyrionlannister.webp" alt="Tyrion Lannister" class="img-rounded">
+					<figcaption>Tyrion Lannister</figcaption>
 				</figure class ="character" name="character-5">
 				<!-- Character 5 Image -->
-				<figure class ="character" name="character">
-					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded">
-					<figcaption>Character 5</figcaption>
+				<figure class ="character" name="The Hound">
+					<img src="assets/images/thehound.webp" alt="Oberyn Martell" class="img-rounded">
+					<figcaption>The Hound</figcaption>
 				</figure>
 				<!-- Ends Panel Body -->
 				</div>
@@ -81,11 +87,10 @@
             	<div class="panel panel-default">
             	<!-- Starts Panel Body -->
   				<div class="panel-body activeName">
-    				This is where the attacker character image will go!
     			<!-- Starts Attacker Figure -->
     			<figure class ="activeAttackChar">
 					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded character">
-					<figcaption>Attacking Character</figcaption>
+					<figcaption>Attacker</figcaption>
 				<!-- Ends Attack Figure -->
 				</figure>
     			<!-- Ends Panel Body -->
@@ -107,11 +112,10 @@
             	<div class="panel panel-default">
   				<!-- Starts Panel Body -->
   				<div class= "panel-body activeName">
-    				This is where the defender image will go!
     			<!-- Starts Defender Figure -->
     			<figure class ="activeDefenseChar">
 					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150" alt="..." class="img-rounded character">
-					<figcaption>Defending Character</figcaption>
+					<figcaption>Defender</figcaption>
 				<!-- Ends Defender Figure -->
 				</figure>
     			<!-- Ends Panel Body -->
@@ -122,13 +126,19 @@
     		</div>
     	<!-- Ends Row 2-->
     	</div>
+
 		<!-- Starts Row 3 -->
 		<div class="row">
 			<!-- Starts Column 1 -->
     		<div class="col-lg-4 col-lg-offset-4" id ="restart">
-            <!-- Starts Restart Button -->
-    			<button type="button" class="btn btn-success" id ="restart-button">Restart</button>
-    		<!-- Ends Restart Button -->
+            	<!-- Starts Restart Button -->
+    			<button type="button" class="btn btn-success" id ="restart-button">Restart
+				<!-- Ends Restart Button -->
+    			</button>
+    		<!-- Ends Column 1 -->
+    		</div>
+    	<!-- Ennds Row 3ß-->
+    	</div>
 
     <!--Ends Container -->
 	</div>
